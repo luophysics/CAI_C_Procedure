@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+    int number1, number2, guess, i, count, operation;
+
+    count = 0;
+
+    for (i = 0; i < 10; i++) {
+
+        srand(time(NULL));
+        number1 = rand()%10 + 1;
+        number2 = rand()%10 + 1;
+        operation = rand()%4 + 1;
+
+        if (operation == 1) {
+            printf("%d + %d = ?\n", number1, number2);
+            scanf(" %d", &guess);
+
+            if (guess == number1 + number2) {
+                printf("Right!\n");
+                count ++;
+            } else {
+                printf("Wrong!\n");
+            }
+        }
+
+        if (operation == 2) {
+            printf("%d - %d = ?\n", number1, number2);
+            scanf(" %d", &guess);
+
+            if (guess == number1 - number2) {
+                printf("Right!\n");
+                count ++;
+            } else {
+                printf("Wrong!\n");
+            }
+        }
+
+        if (operation == 3) {
+            printf("%d * %d = ?\n", number1, number2);
+            scanf(" %d", &guess);
+
+            if (guess == number1 * number2) {
+                printf("Right!\n");
+                count ++;
+            } else {
+                printf("Wrong!\n");
+            }
+        }
+
+        if (operation == 4) {
+            printf("%d / %d = ?\n", number1, number2);
+            scanf(" %d", &guess);
+
+            if (guess == number1 / number2) {
+                printf("Right!\n");
+                count ++;
+            } else {
+                printf("Wrong!\n");
+            }
+        }
+    }
+
+    count *= 10;
+
+    printf("Your total score is %d\n", count);
+    printf("Your accuracy is %d%%\n", count);
+
+    return 0;
+}
