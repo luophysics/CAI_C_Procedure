@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+    int number1, number2, guess;
+
+    srand(time(NULL));
+    number1 = rand()%10 + 1;
+    number2 = rand()%10 + 1;
+
+    printf("%d * %d = ?\n", number1, number2);
+    scanf(" %d", &guess);
+
+    while (guess != (number1 * number2)) {
+        printf("Wrong! Please try again.\n%d * %d = ?\n", number1, number2);
+        scanf(" %d", &guess);
+    }
+
+    printf("Right!\n");
+
+    return 0;
+}
