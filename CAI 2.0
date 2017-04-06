@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+    int number1, number2, guess, count;
+
+    srand(time(NULL));
+    number1 = rand()%10 + 1;
+    number2 = rand()%10 + 1;
+
+    printf("%d * %d = ?\n", number1, number2);
+    scanf(" %d", &guess);
+
+    for (count = 0; count < 3;count++ ){
+        if (guess != (number1 * number2)) {
+            if (count == 2) {
+                printf("Wrong! You have tried three times! Test over!\n");
+            } else {
+                printf("Wrong! Please try again.\n%d * %d = ?\n", number1, number2);
+                scanf(" %d", &guess);
+            }
+        } else {
+            printf("Right!\n");
+            break;
+        }
+    }
+
+    return 0;
+}
